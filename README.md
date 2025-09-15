@@ -37,7 +37,7 @@ You can clone this project and build it with:
 ```shell
 git clone https://github.com/berfins/ttpn.git
 cd ttpn
-mvn clean package
+mvn clean package -DskipTests
 ```
 
 This compiles the module and produces:

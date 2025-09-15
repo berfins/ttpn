@@ -7,8 +7,7 @@
     <parent>
         <groupId>io.github.berfins</groupId>
         <artifactId>ttpn</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <version>${revision}</version>
     </parent>
 
     <!-- this module's own id (name) -->
