@@ -11,21 +11,6 @@ Based mainly on [JGEA](https://github.com/ericmedvet/jgea).
 - Java 21+ (check with `java -version`)
 - Maven 3.8+ (check with `mvn -version`)
 
-You can install Maven by:
-
-ubuntu/debian:
-```shell
-sudo apt update && sudo apt install maven
-```
-mac (homebrew):
-```shell
-brew install maven
-```
-windows (scoop):
-```shell
-scoop install maven
-```
-
 
 ### Clone and build
 
