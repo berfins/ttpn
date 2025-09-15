@@ -6,11 +6,36 @@ Based mainly on [JGEA](https://github.com/ericmedvet/jgea).
 
 ## Installation
 
+## Requirements
+
+- Java 21+ (check with `java -version`)
+- Maven 3.8+ (check with `mvn -version`)
+
+You can install Maven by:
+
+ubuntu/debian:
+```shell
+sudo apt update && sudo apt install maven
+```
+mac (homebrew):
+```shell
+brew install maven
+```
+windows (scoop):
+```shell
+scoop install maven
+```
+
+
 ### Clone and build
+
+Java 21+ and Maven 3.8+ are required.
+
+
 
 You can clone this project and build it with:
 ```shell
-git clone X.git
+git clone https://github.com/berfins/ttpn.git
 cd ttpn
 mvn clean package
 ```
@@ -21,7 +46,6 @@ a normal jar: `io.github.berfins.ttpn.main/target/io.github.berfins.ttpn.main-1.
 
 a fat jar (all dependencies): `io.github.berfins.ttpn.main/target/ttpn-standalone.jar`
 
-Java 21+ and Maven 3.8+ are required.
 
 ```shell
 java -jar io.github.berfins.ttpn.main/target/ttpn-standalone.jar
