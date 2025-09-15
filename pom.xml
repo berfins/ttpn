@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- this identifies YOUR whole project -->
+    <groupId>io.github.berfins</groupId>
+    <artifactId>ttpn</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <!-- simple settings we’ll reuse -->
+    <properties>
+        <revision>1.0.0-SNAPSHOT</revision>        <!-- your project version -->
+        <jdk.version>21</jdk.version>              <!-- Java version -->
+        <jgea.version>2.7.1-berfin-SNAPSHOT</jgea.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- list of subprojects (modules) that belong to this parent -->
+    <modules>
+        <module>io.github.berfins.ttpn.main</module>
+    </modules>
+
+    <!-- tell Maven which Java to compile with -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.13.0</version>
+                    <configuration>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
