@@ -2,7 +2,7 @@
 
 A Java framework for experimenting with TTPNs.
 
-Based mainly on [JGEA](https://github.com/ericmedvet/jgea).
+Based on [JGEA](https://github.com/ericmedvet/jgea).
 
 ## Installation
 
@@ -40,14 +40,16 @@ Hello from TTPN project!
 
 You can run this example by running ```io.github.berfins.ttpn.ApplyInput``` from your IDE or invoking:
 ```shell
+java -cp io.github.berfins.ttpn.main/target/ttpn-standalone.jar io.github.berfins.ttpn.ApplyInput
+```
+or
+```shell
 mvn -pl io.github.berfins.ttpn.main \
     -Dexec.mainClass=io.github.berfins.ttpn.ApplyInput \
     exec:java
    ```
-or
-```shell
-java -cp io.github.berfins.ttpn.main/target/ttpn-standalone.jar io.github.berfins.ttpn.ApplyInput
-```
+
+
 
 What you should see:
 - Console print (network outcome).
@@ -56,7 +58,7 @@ What you should see:
 
 What this example (vector product) does:
 
-- Builds a small TTPN with:
+Builds a small TTPN with [Gate](https://github.com/ericmedvet/jgea/blob/develop/io.github.ericmedvet.jgea.core/src/main/java/io/github/ericmedvet/jgea/core/representation/programsynthesis/ttpn/Gate.java#L172) and [Wire](https://github.com/ericmedvet/jgea/blob/develop/io.github.ericmedvet.jgea.core/src/main/java/io/github/ericmedvet/jgea/core/representation/programsynthesis/ttpn/Wire.java) with:
   - 2 inputs of type "sequence of real": `Gate.input(Composed.sequence(Base.REAL))`
   - some pre-defined gates: splitters, a real multiplication gate, a sum gate,
   - 1 output of type "real": `Gate.output(Base.REAL)`
