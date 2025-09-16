@@ -11,48 +11,43 @@ Based mainly on [JGEA](https://github.com/ericmedvet/jgea).
 - Java 21+ (check with `java -version`)
 - Maven 3.8+ (check with `mvn -version`)
 
-
 ### Clone and build
-
-Java 21+ and Maven 3.8+ are required.
-
-
 
 You can clone this project and build it with:
 ```shell
 git clone https://github.com/berfins/ttpn.git
 cd ttpn
-mvn clean package -DskipTests
+mvn clean package
 ```
 
 This compiles the module and produces:
+- a normal jar: `io.github.berfins.ttpn.main/target/io.github.berfins.ttpn.main-1.0.0-SNAPSHOT.jar`
+- a fat jar (including all the dependencies): `io.github.berfins.ttpn.main/target/ttpn-standalone.jar`
 
-a normal jar: `io.github.berfins.ttpn.main/target/io.github.berfins.ttpn.main-1.0.0-SNAPSHOT.jar`
-
-a fat jar (all dependencies): `io.github.berfins.ttpn.main/target/ttpn-standalone.jar`
-
-
+Test it with:
 ```shell
 java -jar io.github.berfins.ttpn.main/target/ttpn-standalone.jar
 ```
 
 If everything is working correctly, you should see:
-
-```Hello from TTPN project!```
+```
+Hello from TTPN project!
+```
 
 ## Usage
 
 ### Running an Example Network with a Given Input (vector product)
 
-You can run an example by running ```ApplyInput.java``` in ```io.github.berfins.ttpn.main/src/main/java/io/github/berfins/ttpn/ApplyInput.java```
-
-or invoking:
-
+You can run this example by running ```io.github.berfins.ttpn.ApplyInput``` from your IDE or invoking:
 ```shell
 mvn -pl io.github.berfins.ttpn.main \
     -Dexec.mainClass=io.github.berfins.ttpn.ApplyInput \
     exec:java
    ```
+or
+```shell
+java -cp io.github.berfins.ttpn.main/target/ttpn-standalone.jar io.github.berfins.ttpn.ApplyInput
+```
 
 What you should see:
 - Console print (network outcome).
@@ -62,18 +57,11 @@ What you should see:
 What this example (vector product) does:
 
 - Builds a small TTPN with:
-  - 2 sequence inputs (reals),  
-  ```Gate.input(Composed.sequence(Base.REAL)),```
-
-  - Pre-defined gates; splitters, a real multiplication gate, a sum gate,
-
-  - 1 real output.
-```Gate.output(Base.REAL)```
-
-  - Set of wires are defined as
-```Wire.of(source gate index, source port index, destination gate index, destination port index)```
-
-```
+  - 2 inputs of type "sequence of real": `Gate.input(Composed.sequence(Base.REAL))`
+  - some pre-defined gates: splitters, a real multiplication gate, a sum gate,
+  - 1 output of type "real": `Gate.output(Base.REAL)`
+  - a set of wires, each defined with `Wire.of(sourceGateIndex, sourcePortIndex, destinationGateIndex, destinationPortIndex)`
+```java
     Network n = new Network(
         List.of(
             Gate.input(Composed.sequence(Base.REAL)),
@@ -95,19 +83,18 @@ What this example (vector product) does:
         )
     );
 ```
+- Uses a `Drawer` to visualize and save this network.
 
-- Uses a ```Drawer``` to visualize and save this network.
-
-- Uses a ````Runner```` to execute the network on example inputs:
-
-      Runner.TTPNInstrumentedOutcome outcome = runner.run(
-          n,
-          List.of(
-              List.of(1.0, 2.0, 3.0),
-              List.of(4.0, 5.0, 6.0)
-          )
-      );
-
+- Uses a `Runner` to execute the network on example inputs:
+```java
+Runner.TTPNInstrumentedOutcome outcome = runner.run(
+  n,
+  List.of(
+      List.of(1.0, 2.0, 3.0),
+      List.of(4.0, 5.0, 6.0)
+  )
+);
+```
 The example input can be modified here.
 
 - Prints the outputs and a profile of the run.
