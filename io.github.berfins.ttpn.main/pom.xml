@@ -3,18 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- this says: "I belong to the parent you just created" -->
     <parent>
         <groupId>io.github.berfins</groupId>
         <artifactId>ttpn</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <!-- this module's own id (name) -->
     <artifactId>io.github.berfins.ttpn.main</artifactId>
     <packaging>jar</packaging>
 
-    <!-- what we depend on; for now JGEA core, version comes from the parent -->
     <dependencies>
         <dependency>
             <groupId>io.github.ericmedvet</groupId>
