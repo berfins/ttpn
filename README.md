@@ -113,6 +113,34 @@ The example input can be modified here.
 
 ![ttpn-vProduct](assets/images/ttpn-vProduct.gif)
 
+### Running More Examples
+
+By running ```io.github.berfins.ttpn.TestProblems``` directly from your IDE or invoking:
+```shell
+java -cp io.github.berfins.ttpn.main/target/ttpn-standalone.jar io.github.berfins.ttpn.TestProblems
+```
+
+By default, the test runs a network that solves the “longest of three strings” problem, as described in our paper:
+
+![problems](assets/images/problems.png)
+
+The output prints 50 input–output examples, along with the network’s predicted (calculated) output:
+```
+in=[alHlagmacdmo,  ddll, mummy] actualOut=[alHlagmacdmo]        predOut=[alHlagmacdmo]
+in=[cat, cat, rmocHlmHWguttd]   actualOut=[rmocHlmHWguttd]      predOut=[rmocHlmHWguttd]
+```
+
+To test a different problem, edit these lines in the code:
+
+```java
+    Network chosenNetwork = NETWORK_NAME;
+    ProgramSynthesisProblem psb = PROGRAM_SYNTHESIS_PROBLEM;
+```
+
+Note: Two networks are defined for each problem, 
+- good network: the most compact network that solves the problem
+- big network: a larger variant with additional redundant gates
+
 
 
 ## References
