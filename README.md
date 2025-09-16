@@ -42,7 +42,7 @@ If everything is working correctly, you should see:
 
 ## Usage
 
-### Example Problem
+### Running an Example Network with a Given Input (vector product)
 
 You can run an example by running ```ApplyInput.java``` in ```io.github.berfins.ttpn.main/src/main/java/io/github/berfins/ttpn/ApplyInput.java```
 
@@ -65,10 +65,13 @@ What this example (vector product) does:
   - 2 sequence inputs (reals),  
   ```Gate.input(Composed.sequence(Base.REAL)),```
 
-  - splitters, a real multiplication gate, a sum gate,
+  - Pre-defined gates; splitters, a real multiplication gate, a sum gate,
 
   - 1 real output.
 ```Gate.output(Base.REAL)```
+
+  - Set of wires are defined as
+```Wire.of(source gate index, source port index, destination gate index, destination port index)```
 
 ```
     Network n = new Network(
