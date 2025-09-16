@@ -641,13 +641,14 @@ public class TestProblems {
         "ea.p.ps.synthetic(name = \"remainder\"; metrics = [fail_rate; avg_raw_dissimilarity; exception_error_rate; profile_avg_steps; profile_avg_tot_size])"
     );
 
+    // CHOSEN NETWORK AND PROGRAM SYNTHESIS PROBLEM
     Network chosenNetwork = triLongestStringGoodNetwork;
     ProgramSynthesisProblem psb = triLongestStringpsb;
 
     TTPNDrawer drawer = new TTPNDrawer(TTPNDrawer.Configuration.DEFAULT);
-    Runner runner = new Runner(100, 1000, 1000, 100, false);
-
     drawer.show(chosenNetwork);
+
+    Runner runner = new Runner(100, 1000, 1000, 100, false);
 
     System.out.println("Network:");
 
@@ -665,7 +666,6 @@ public class TestProblems {
               );
             }
         );
-
     System.out.println(psb.qualityFunction().apply(runner.asInstrumentedProgram(chosenNetwork)));
   }
 }
