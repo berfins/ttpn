@@ -44,7 +44,9 @@ If everything is working correctly, you should see:
 
 ### Example Problem
 
-You can run an example by invoking:
+You can run an example by running ```ApplyInput.java``` in ```io.github.berfins.ttpn.main/src/main/java/io/github/berfins/ttpn/ApplyInput.java```
+
+or invoking:
 
 ```shell
 mvn -pl io.github.berfins.ttpn.main \
@@ -68,7 +70,7 @@ What this example (vector product) does:
   - 1 real output.
 ```Gate.output(Base.REAL)```
 
-
+```
     Network n = new Network(
         List.of(
             Gate.input(Composed.sequence(Base.REAL)),
@@ -89,7 +91,7 @@ What this example (vector product) does:
             Wire.of(5, 0, 6, 0)
         )
     );
-
+```
 
 - Uses a ```Drawer``` to visualize and save this network.
 
